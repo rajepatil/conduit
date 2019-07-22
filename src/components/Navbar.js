@@ -1,0 +1,65 @@
+import React, { Component } from 'react';
+import { Link } from "react-router-dom";
+
+
+
+export  class Navbar extends Component {
+  logout = () => {
+    localStorage.clear();
+    console.log("clear local storage")
+    
+  } 
+
+  render() {
+    var user = localStorage.getItem("user") || null ;
+    return (
+      <nav className="navbar navbar-expand-lg navbar-light">
+        <div className="container">
+          <ul className="nav navbar-nav">
+            <li className="navbar-brand">
+              <Link className="nav-link text-success font-weight-bold" to="/">
+                conduit
+              </Link>
+            </li>
+          </ul>
+          
+            {
+              !user ?
+                <ul className="nav navbar-nav pull-xs-right">
+                  <li className="nav-item">
+                    <Link to="/" className="nav-link">Home</Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link to="/login" className="nav-link">Sign in</Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link to="/signup" className="nav-link">Sign up</Link>
+                  </li>
+                </ul>
+              :
+                <ul className="nav navbar-nav pull-xs-right">
+                  <li className="nav-item">
+                    <Link to="/" className="nav-link">Home</Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link to="/newpost" className="nav-link">New post</Link>
+                  </li>
+                    <li className="nav-item">
+                  <Link to="/setting" className="nav-link">Setting</Link>
+                    </li>
+                  <li className="nav-item">
+                    <Link to="/dashbord" className="nav-link">profile</Link>
+                  </li>
+                  <li className="nav-item">
+                    <p className="nav-link">{JSON.parse(localStorage.user).username}</p>
+                  </li>
+                  <li className="nav-item">
+                    <button className="nav-link btn" onClick={this.logout} >logout</button>
+                    </li>
+                </ul>
+            }
+        </div>
+      </nav>
+    )
+  }
+}
