@@ -12,9 +12,9 @@ export  class Home extends React.Component {
       <div className="container justify-content-center">
         <div className="row">
           <div className="p-3 col-9">
-            <ul class="nav nav-tabs">
-              <li class="nav-item">
-                <a class="nav-link" href="#">Global feed</a>
+            <ul className="nav nav-tabs">
+              <li className="nav-item">
+                <a className="nav-link" href="#">Global feed</a>
               </li>
             </ul>
             <Articles/>

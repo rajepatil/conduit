@@ -9,14 +9,20 @@ import { Login } from './components/Login';
 import { Navbar } from './components/Navbar';
 import { Newpost } from './components/Newpost';
 import { Article } from './components/Article';
+import { Profile } from './components/Profile'; 
 
 
 class App extends Component {
-  
+  constructor(){
+    super();
+    this.state = {appuser:localStorage.user}
+    
+     console.log(localStorage);
+}
   render() {
     return (
      <BrowserRouter>
-      <Navbar/>
+      <Navbar appuser={this.state.appuser}/>
       <Switch>
         <Route exact path="/" component={Home} />
         <Route path="/login" component={Login} />
@@ -24,6 +30,7 @@ class App extends Component {
         <Route path="/setting" component={Setting}/>
         <Route path="/newpost" component={Newpost}/>
         <Route path="/articles" component={Article}/>
+        <Route path="/profiles/:name" component={Profile}/>
 
       </Switch>
     </BrowserRouter>

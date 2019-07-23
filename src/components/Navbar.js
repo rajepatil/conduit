@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 
 
 export  class Navbar extends Component {
+
+ 
   logout = () => {
     localStorage.clear();
     console.log("clear local storage")
@@ -47,11 +49,9 @@ export  class Navbar extends Component {
                     <li className="nav-item">
                   <Link to="/setting" className="nav-link">Setting</Link>
                     </li>
+                 
                   <li className="nav-item">
-                    <Link to="/dashbord" className="nav-link">profile</Link>
-                  </li>
-                  <li className="nav-item">
-                    <p className="nav-link">{JSON.parse(localStorage.user).username}</p>
+                    <Link to={`profiles/${JSON.parse(localStorage.user).username}`} className="nav-link">{JSON.parse(localStorage.user).username}</Link>
                   </li>
                   <li className="nav-item">
                     <button className="nav-link btn" onClick={this.logout} >logout</button>

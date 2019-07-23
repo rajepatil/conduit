@@ -33,12 +33,12 @@ export  class Articles extends React.Component{
                             <div className="container shadow p-3 mb-5 bg-light rounded">
                                 <div key={index} className="media">
                                     <div className="media-left p-1">
-                                        <Link to={`@${article.author.username}`}>
+                                        <Link to={`profiles/${article.author.username}`}>
                                             <img className="rounded-circle media-object" src={article.author.image} alt={article.author.username} width="42" height="42"/>
                                         </Link>
                                     </div>
                                     <div className="media-body"> 
-                                        <Link to={`@${article.author.username}`}>       
+                                        <Link to={`profiles/${article.author.username}`}>       
                                             <h5 className="media-heading">{article.author.username}</h5>
                                         </Link>
                                         <h6 className="text-muted">

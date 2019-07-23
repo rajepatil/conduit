@@ -39,31 +39,30 @@ export class Article extends React.Component {
                                         <Link to={`@${article.author ? article.author.username : ""}`}>
                                             <img className="rounded-circle media-object" src={article.author ? article.author.image : ""} alt={article.author ? article.author.username : ""} width="42" height="42"/>
                                         </Link>
-                                    </div>                     
-                                                       
-                                                        
+                                    </div>
                             </div>
                             <div className="media-body"> 
                             {
                                 <h5 className="media-heading">{article.author ? article.author.username : "" }</h5>
-                                
                             }
                             <h6 >
-                                            <small>
-                                                {new Date(article.createdAt).toDateString()}
-                                            </small>
-                                        </h6>
+                                <small>
+                                    {new Date(article.createdAt).toDateString()}
+                                </small>
+                            </h6>
                             </div>
                         </div>
-                    </div>
-                    
+                    </div>                
                 </div>
                 <div className="container">
                 <p>{article.body}</p> 
                 </div>
-                
-                     
-            </div>
+                <div className="col-xs-12 col-md-8 offset-md-2">
+                    <div className="card">
+                            <p> dddd</p>
+                     </div>
+                </div>
+             </div>
         );
     }
 }
