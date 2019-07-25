@@ -23,6 +23,7 @@ export  class Articles extends React.Component{
     }
 
     render(){
+        
         const {articles,loading } = this.state;
        
         return(
@@ -38,12 +39,12 @@ export  class Articles extends React.Component{
                                         </Link>
                                     </div>
                                     <div className="media-body"> 
-                                        <Link to={`profiles/${article.author.username}`}>       
+                                        <Link to={localStorage.getItem("user") ? `profiles/${article.author.username}` : `/login`}>       
                                             <h5 className="media-heading">{article.author.username}</h5>
                                         </Link>
                                         <h6 className="text-muted">
                                             <small>
-                                                {new Date(article.createdAt).toDateString()}
+                                            {new Date(article.createdAt).toDateString()}
                                             </small>
                                         </h6>
                                     </div>
@@ -51,6 +52,17 @@ export  class Articles extends React.Component{
                                 <Link to={`articles/${article.slug}`}>
                                     <h2>{article.title}</h2>
                                     <p>{article.description}</p>
+                                    <ul className="">
+                                        {
+                                             article.tagList.map(tag => {
+                                            return (
+                                                <li className="" key={tag}>
+                                                    {tag}
+                                              </li>
+                                                 ) 
+                                              })
+                                        }
+                                    </ul>
                                 </Link>
                             </div>
                         )}

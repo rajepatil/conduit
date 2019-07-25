@@ -14,7 +14,8 @@ export  class Home extends React.Component {
           <div className="p-3 col-9">
             <ul className="nav nav-tabs">
               <li className="nav-item">
-                <a className="nav-link" href="#">Global feed</a>
+                <a className="nav-link">Global feed</a>
+               
               </li>
             </ul>
             <Articles/>

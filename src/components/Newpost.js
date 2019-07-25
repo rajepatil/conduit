@@ -46,16 +46,16 @@ export  class Newpost extends React.Component {
       <div className="container">
       <div> 
         <form>
-        <input type="text" name="title" className="form-control" onChange={this.handdleChange} value={this.state.title} />
+        <input type="text" name="title" placeholder="title" className="form-control" onChange={this.handdleChange} value={this.state.title} />
         <br />
-        <input type="text" name="subt" className="form-control" onChange={this.handdleChange} value={this.state.subt} />
+        <input type="text" name="subt" placeholder="sub title" className="form-control" onChange={this.handdleChange} value={this.state.subt} />
         <br />
-        <textarea type="text" name="body" className="from-control" row="100" cols="120" onChange={this.handdleChange} value={this.state.body} />
+        <textarea type="text" name="body" placeholder="body" className="from-control" row="100" cols="120" onChange={this.handdleChange} value={this.state.body} />
         <div className="text-right mt-4">
           <b />
-        <input type="text" name="tags" className="form-control" onChange={this.handdleChange} value={this.state.tags} />
+        <input type="text" name="tags" placeholder="tags" className="form-control" onChange={this.handdleChange} value={this.state.tags} />
         <br />
-          <button type="submit" placeholder="tags" className="btn btn-success" onClick={this.submitHandler}>
+          <button type="submit" className="btn btn-success" onClick={this.submitHandler}>
             Publish Article
           </button>
         </div>

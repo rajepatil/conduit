@@ -13,16 +13,12 @@ import { Profile } from './components/Profile';
 
 
 class App extends Component {
-  constructor(){
-    super();
-    this.state = {appuser:localStorage.user}
-    
-     console.log(localStorage);
-}
+ 
   render() {
+    
     return (
      <BrowserRouter>
-      <Navbar appuser={this.state.appuser}/>
+      <Navbar/>
       <Switch>
         <Route exact path="/" component={Home} />
         <Route path="/login" component={Login} />

@@ -33,9 +33,8 @@ export class Tags extends React.Component{
                             <button className="btn-success rounded-pill m-1 " key={tag}>{tag}</button>
                         )
                     }) )
-                } 
+                }
             </div>
-                
         )
     }
 }

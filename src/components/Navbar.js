@@ -4,13 +4,11 @@ import { Link } from "react-router-dom";
 
 
 export  class Navbar extends Component {
-
- 
+  
   logout = () => {
     localStorage.clear();
     console.log("clear local storage")
-    
-  } 
+  }
 
   render() {
     var user = localStorage.getItem("user") || null ;

@@ -10,12 +10,12 @@ export class Article extends React.Component {
     
     
     componentDidMount() {
+        console.log(this.props.location.pathname);
         fetch(`https://conduit.productionready.io/api${this.props.location.pathname}`)
         .then(res => res.json() )
         // .then(data => console.log(data))
         .then(data => this.setState({
             article: data.article
-            
         }))
         
         .catch(error => console.log(error))
