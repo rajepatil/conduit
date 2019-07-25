@@ -10,7 +10,7 @@ export class Article extends React.Component {
     
     
     componentDidMount() {
-        console.log(this.props.location.pathname);
+        //console.log(this.props.location.pathname);
         fetch(`https://conduit.productionready.io/api${this.props.location.pathname}`)
         .then(res => res.json() )
         // .then(data => console.log(data))
@@ -20,12 +20,37 @@ export class Article extends React.Component {
         
         .catch(error => console.log(error))
     }
+    submitHandler = () => {
+        {(this.state.article.favorited) ?
+          (fetch(`https://conduit.productionready.io/api/articles/${this.state.article.slug}/favorite`,{
+            method: "DELETE",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Token ${JSON.parse(localStorage.user).token}`
+            }
+          }).then(res => res.json())
+            // .then(data=> console.log(data,"del"))
+            .then(data => this.setState({article: data.article}))
+            .catch(error => console.error("Error:", error)))
+        : (fetch(`https://conduit.productionready.io/api/articles/${this.state.article.slug}/favorite`,{
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Token ${JSON.parse(localStorage.user).token}`
+          }
+          })
+          .then(res => res.json())
+          // .then(data=> console.log(data,"post"))
+          .then(data => this.setState({article: data.article}))
+          .catch(error => console.error("Error:", error)))
+        }
+      };
 
     render() { 
         
         const {article} = this.state;
         
-        console.log("render",article)
+        console.log("render",this.state.article.favorited);
         
         return ( 
             <div>
@@ -51,6 +76,9 @@ export class Article extends React.Component {
                                 </small>
                             </h6>
                             </div>
+                            <div className="media-right p-1">
+                                <button className="btn btn-outline-success" onClick={this.submitHandler} >{article.favoritesCount}</button>
+                            </div>
                         </div>
                     </div>                
                 </div>
@@ -59,7 +87,7 @@ export class Article extends React.Component {
                 </div>
                 <div className="col-xs-12 col-md-8 offset-md-2">
                     <div className="card">
-                            <p> dddd</p>
+                            <p>commet</p>
                      </div>
                 </div>
              </div>

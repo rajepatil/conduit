@@ -4,14 +4,26 @@ import { Link } from "react-router-dom";
 
 
 export  class Navbar extends Component {
+//   state = {
+//     suser:{}
   
+// }
+
   logout = () => {
     localStorage.clear();
-    console.log("clear local storage")
+    
   }
+  // componentDidMount() {
+  //   this.setState = ({suser:this.props.appuser});
+  //   console.log(this.props.appuser);
+  // }
 
   render() {
+    // console.log("state",this.state)
+    // console.log("props",this.props.appuser);
+    
     var user = localStorage.getItem("user") || null ;
+    
     return (
       <nav className="navbar navbar-expand-lg navbar-light">
         <div className="container">

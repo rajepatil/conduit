@@ -11,6 +11,7 @@ export  class Articles extends React.Component{
     }
 
     componentDidMount() {
+        
         fetch('https://conduit.productionready.io/api/articles?limit=20')
         .then(res => res.json() )
         
@@ -26,6 +27,7 @@ export  class Articles extends React.Component{
         
         const {articles,loading } = this.state;
        
+        
         return(
             <div>
                 {loading || !articles ? (<div className="text-center"><SpinnerPage /></div>) 
@@ -39,7 +41,7 @@ export  class Articles extends React.Component{
                                         </Link>
                                     </div>
                                     <div className="media-body"> 
-                                        <Link to={localStorage.getItem("user") ? `profiles/${article.author.username}` : `/login`}>       
+                                        <Link to={localStorage.getItem("user") ? `profiles/${article.author.username}` : `/login`}> 
                                             <h5 className="media-heading">{article.author.username}</h5>
                                         </Link>
                                         <h6 className="text-muted">
@@ -47,6 +49,11 @@ export  class Articles extends React.Component{
                                             {new Date(article.createdAt).toDateString()}
                                             </small>
                                         </h6>
+                                    </div>
+                                    <div className="media-right p-1">
+                                    <Link to={localStorage.getItem("user") ? `articles/${article.slug}` : `/login`}>
+                                        <button className="btn btn-outline-success" >{article.favoritesCount}</button>
+                                    </Link>
                                     </div>
                                 </div>
                                 <Link to={`articles/${article.slug}`}>
