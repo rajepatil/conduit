@@ -56,9 +56,7 @@ export  class Navbar extends Component {
                   <li className="nav-item">
                     <Link to="/newpost" className="nav-link">New post</Link>
                   </li>
-                    <li className="nav-item">
-                  <Link to="/setting" className="nav-link">Setting</Link>
-                    </li>
+                    
                  
                   <li className="nav-item">
                     <Link to={`profiles/${JSON.parse(localStorage.user).username}`} className="nav-link">{JSON.parse(localStorage.user).username}</Link>

@@ -51,9 +51,9 @@ export  class Articles extends React.Component{
                                         </h6>
                                     </div>
                                     <div className="media-right p-1">
-                                    <Link to={localStorage.getItem("user") ? `articles/${article.slug}` : `/login`}>
-                                        <button className="btn btn-outline-success" >{article.favoritesCount}</button>
-                                    </Link>
+                                        <Link to={localStorage.getItem("user") ? `articles/${article.slug}` : `/login`}>
+                                            <button className="btn btn-outline-success" >{article.favoritesCount}</button>
+                                        </Link>
                                     </div>
                                 </div>
                                 <Link to={`articles/${article.slug}`}>
