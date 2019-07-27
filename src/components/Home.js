@@ -15,7 +15,6 @@ export  class Home extends React.Component {
             <ul className="nav nav-tabs">
               <li className="nav-item">
                 <a className="nav-link">Global feed</a>
-               
               </li>
             </ul>
             <Articles/>

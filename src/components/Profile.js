@@ -25,8 +25,7 @@ export class Profile extends React.Component {
     .catch(error => console.log(error))
   }
 
-  submitHandler = () => {
-    {(this.state.profile.following) ?
+  submitHandler = () => {(this.state.profile.following) ?
       (fetch(`https://conduit.productionready.io/api/profiles/${this.state.profile.username}/follow`,{
         method: "DELETE",
         headers: {
@@ -48,7 +47,7 @@ export class Profile extends React.Component {
       // .then(data=> console.log(data,"post"))
       .then(data => this.setState({profile: data.profile}))
       .catch(error => console.error("Error:", error)))
-    }
+    
   };
   render() { 
     const user = this.state.profile ;
