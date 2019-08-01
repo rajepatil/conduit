@@ -1,12 +1,12 @@
-import React from 'react';
-export  class Newpost extends React.Component {
+import React from "react";
+export class Newpost extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       title: "",
       description: "",
       body: "",
-      tags:""
+      tags: ""
     };
   }
   handdleChange = e => {
@@ -15,7 +15,7 @@ export  class Newpost extends React.Component {
       [name]: value
     });
   };
-  submitHandler = (e) => {
+  submitHandler = e => {
     e.preventDefault();
     var data = {
       article: {
@@ -25,7 +25,7 @@ export  class Newpost extends React.Component {
         taglist: [this.state.tags]
       }
     };
-    fetch("https://conduit.productionready.io/api/articles",{
+    fetch("https://conduit.productionready.io/api/articles", {
       method: "POST",
       body: JSON.stringify(data),
       headers: {
@@ -35,33 +35,66 @@ export  class Newpost extends React.Component {
     })
       .then(res => res.json())
       .then(data => {
-        this.props.history.push("/")
-        console.log(data)
+        this.props.history.push("/");
+        console.log(data);
       })
       .catch(error => console.error("Error:", error));
   };
-  render()
-  {
+  render() {
     return (
       <div className="container">
-      <div> 
-        <form>
-        <input type="text" name="title" placeholder="title" className="form-control" onChange={this.handdleChange} value={this.state.title} />
-        <br />
-        <input type="text" name="subt" placeholder="sub title" className="form-control" onChange={this.handdleChange} value={this.state.subt} />
-        <br />
-        <textarea type="text" name="body" placeholder="body" className="from-control" row="100" cols="120" onChange={this.handdleChange} value={this.state.body} />
-        <div className="text-right mt-4">
-          <b />
-        <input type="text" name="tags" placeholder="tags" className="form-control" onChange={this.handdleChange} value={this.state.tags} />
-        <br />
-          <button type="submit" className="btn btn-success" onClick={this.submitHandler}>
-            Publish Article
-          </button>
+        <div>
+          <form>
+            <input
+              type="text"
+              name="title"
+              placeholder="title"
+              className="form-control"
+              onChange={this.handdleChange}
+              value={this.state.title}
+            />
+            <br />
+            <input
+              type="text"
+              name="subt"
+              placeholder="sub title"
+              className="form-control"
+              onChange={this.handdleChange}
+              value={this.state.subt}
+            />
+            <br />
+            <textarea
+              type="text"
+              name="body"
+              placeholder="body"
+              className="from-control"
+              row="100"
+              cols="120"
+              onChange={this.handdleChange}
+              value={this.state.body}
+            />
+            <div className="text-right mt-4">
+              <b />
+              <input
+                type="text"
+                name="tags"
+                placeholder="tags"
+                className="form-control"
+                onChange={this.handdleChange}
+                value={this.state.tags}
+              />
+              <br />
+              <button
+                type="submit"
+                className="btn btn-success"
+                onClick={this.submitHandler}
+              >
+                Publish Article
+              </button>
+            </div>
+          </form>
         </div>
-      </form>
       </div>
-    </div>
     );
   }
 }

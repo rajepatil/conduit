@@ -1,5 +1,5 @@
-import React from 'react';
-export  class Login extends React.Component {
+import React from "react";
+export class Login extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -13,7 +13,7 @@ export  class Login extends React.Component {
       [name]: value
     });
   };
-  submitHandler = (e) => {
+  submitHandler = e => {
     e.preventDefault();
     var data = {
       user: {
@@ -21,7 +21,7 @@ export  class Login extends React.Component {
         password: this.state.password
       }
     };
-    fetch("https://conduit.productionready.io/api/users/login",{
+    fetch("https://conduit.productionready.io/api/users/login", {
       method: "POST",
       body: JSON.stringify(data),
       headers: {
@@ -30,35 +30,48 @@ export  class Login extends React.Component {
     })
       .then(res => res.json())
       .then(data => {
-        this.props.history.push("/")
-        localStorage.setItem("user", JSON.stringify(data.user))
-        console.log(data.user)
+        this.props.history.push("/");
+        localStorage.setItem("user", JSON.stringify(data.user));
+        console.log(data.user);
       })
       .catch(error => console.error("Error:", error));
   };
 
-
-  
-  render()
-  {
+  render() {
     return (
       <div className="container">
-      <div className="form-container"> 
-        <form>
-        <p className="h4 text-center mb-4">Sign in</p>
-        <label className="grey-text">Your email</label>
-        <input type="email" name="email" className="form-control" onChange={this.handdleChange} value={this.state.email} />
-        <br />
-        <label className="grey-text">Your password</label>
-        <input type="password" name="password" className="form-control" onChange={this.handdleChange} value={this.state.password} />
-        <div className="text-right mt-4">
-          <button type="submit" className="btn btn-success" onClick={this.submitHandler}>
-            Login
-          </button>
+        <div className="form-container">
+          <form>
+            <p className="h4 text-center mb-4">Sign in</p>
+            <label className="grey-text">Your email</label>
+            <input
+              type="email"
+              name="email"
+              className="form-control"
+              onChange={this.handdleChange}
+              value={this.state.email}
+            />
+            <br />
+            <label className="grey-text">Your password</label>
+            <input
+              type="password"
+              name="password"
+              className="form-control"
+              onChange={this.handdleChange}
+              value={this.state.password}
+            />
+            <div className="text-right mt-4">
+              <button
+                type="submit"
+                className="btn btn-success"
+                onClick={this.submitHandler}
+              >
+                Login
+              </button>
+            </div>
+          </form>
         </div>
-      </form>
       </div>
-    </div>
     );
   }
 }
