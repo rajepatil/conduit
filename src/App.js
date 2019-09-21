@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
-import "./App.css";
+
 import { Home } from "./components/Home";
 import { Setting } from "./components/Setting";
 import { Signup } from "./components/Signup";
